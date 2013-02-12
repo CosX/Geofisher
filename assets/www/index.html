@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="js/map_functions.js"></script>
+        <title>GeoFisher</title>
+    </head>
+    <body>
+        <div data-role="page" id="map">
+            <header data-role="header">
+                <h1>Map</h1>
+            </header>
+            <div id="map_canvas"><div id="googleMap" style="position:absolute;width:100%;height:90%;"></div></div>
+           <footer data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" class="ui-btn-active ui-state-persist" data-icon="home">Map</a></li>
+                        <li><a href="#friends" data-icon="search">Friends</a></li>
+                        <li><a href="#log" data-icon="info">Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <div data-role="page" id="friends">
+            <header data-role="header">
+                <h1>Friends</h1>
+            </header>
+            <article data-role="content">
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Search users...">
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Tom1989
+                            </h1>
+                            <img src="images/nopic.gif" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                FiskeKjell73
+                            </h1>
+                            <img src="images/nopic.gif" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Jonas Larsen
+                            </h1>
+                            <img src="images/nopic.gif" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Superman56
+                            </h1>
+                            <img src="images/nopic.gif" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                PetterAFK.
+                            </h1>
+                            <img src="images/nopic.gif" />
+                        </a>
+                    </li>
+                </ul>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" data-icon="home">Map</a></li>
+                        <li><a href="#friends" class="ui-btn-active ui-state-persist" data-icon="search">Friends</a></li>
+                        <li><a href="#log" data-icon="info">Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <div data-role="page" id="log">
+            <header data-role="header">
+                <h1>Log</h1>
+            </header>
+            <article data-role="content">
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Search log...">
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Fisketur på heia.
+                            </h1>
+                            <p>
+                                Beste fisketuren i år. Fikk seks ørrett. Flått vær også
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Kjipeste fiskeplassen ever...
+                            </h1>
+                            <p>
+                                Dritt plass. ingen fisk å få
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Kompis tur til fiskevannet.
+                            </h1>
+                            <p>
+                                Flått tur med mye fangst, øl og godt vær.
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Masse makrell her i fjorden.
+                            </h1>
+                            <p>
+                                God fangst i solbergfjorden. Dro opp 7 makrell på under en halv time. Flott fangst.
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Fiske i sverige er flott.
+                            </h1>
+                            <p>
+                                Masse fisk å få her over grensen.
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h1>
+                                Grønn skuter til salgs.
+                            </h1>
+                            <p>
+                                jallajajajajajajajajajajajaajajaj....
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" data-icon="home">Map</a></li>
+                        <li><a href="#friends" data-icon="search">Friends</a></li>
+                        <li><a href="#log" class="ui-btn-active ui-state-persist" data-icon="info">Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <script type="text/javascript" src="cordova-2.4.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
