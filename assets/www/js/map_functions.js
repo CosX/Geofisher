@@ -50,7 +50,7 @@ var myCenter=new google.maps.LatLng(51.508742,-0.120850);
 	            icon: new google.maps.MarkerImage('http://frigg.hiof.no/h13d23/mapexample/url.png')
             });
             var infowindow = new google.maps.InfoWindow({
-                content: 'Sted: ' + '<input type="text" class="legg-sted">' + '<br>Fortell om tur: ' + '<input type="textarea" class="legg-besk">' +'<button type="submit" class="add-menu">Trykk</button>'
+                content: 'Title: ' + '<input type="text" class="legg-sted">' + '<br>Story: ' + '<input type="textarea" class="legg-besk">' + '<button type="submit" class="add-menu">Trykk</button>'
             });
             infowindow.open(map,marker);
         }
