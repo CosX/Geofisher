@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Geofisher</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.0.min.css" />
+        <link rel="stylesheet" href="css/mobiscroll.custom-2.5.0.min.css" />
+        <link rel="stylesheet" href="css/custom_css.css" />
+        <!--<link rel="stylesheet" href="css/geofish.css" />-->
+        <link rel="stylesheet" href="css/rateit.css" />
+        <link rel="stylesheet" href="css/custom_rating.css" />
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/jquery.mobile-1.3.0.min.js"></script>
+        <script src="cordova-2.6.0.js"></script>
+        <script src="js/mobiscroll.custom-2.5.0.min.js"></script>
+        <script src="js/jquery.rateit.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=weather&key=AIzaSyBgOvsGNYUuJgfg0SvGs4XQRP452iPYHPc&sensor=false"></script>
+	    <script src="js/datepicker.js"></script>
+	    <script src="js/logincheck.js"></script>
+	    <script src="js/logout.js"></script>
+	    <script src="js/map_functions.js"></script>
+	    <script src="js/register-point.js"></script>
+	    <script src="js/show-friends.js"></script>
+	    <script src="js/friend-requests.js"></script>
+	    <script src="js/search-friends.js"></script>
+	    <script src="js/show-logs.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="map" data-theme="b">
+            <header data-role="header" data-theme="b">
+                <h1>Map</h1>
+                <a href="#" class="logout" data-role="button">Logout</a>
+                <a href="#" class="get-gps" data-role="button">Your location</a>
+            </header>
+            <div id="map_canvas"><div id="googleMap" style="position:absolute;width:100%;height:90%;"></div></div>
+            <div class="push-message">Press and hold to create a point</div>
+            <footer data-role="footer" data-id="foo1" data-position="fixed" data-tap-toggle="false" data-theme="b">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" class="ui-btn-active ui-state-persist" data-icon="home" data-transition="slide">Map</a></li>
+                        <li><a href="#friends" data-icon="search" data-transition="slide">Friends</a></li>
+                        <li><a href="#log" data-icon="info" data-transition="slide">Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <div data-role="page" id="friends" data-theme="b">
+            <header data-role="header" data-theme="b">
+                <h1>Friends</h1>
+                <a href="#" class="logout" data-role="button">Logout</a>
+            </header>
+            <article data-role="content" data-theme="b">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="friend-search" >Search Input:</label>
+                <input type="search" name="friend-search" id="friend-search" value="" placeholder="Search users" />
+                <a data-role="button" data-theme="b" href="#" id="search-execute">Search</a>
+            </div>
+            <ul data-role="listview" id="search-friends">
+                    
+            </ul>
+            <p id="num-friends"></p>
+            <ul data-role="listview" id="my-friends">
+                    
+            </ul>
+            <ul data-role="listview" id="friend-requests">
+                    
+            </ul>
+            </article>
+            <footer data-role="footer" data-id="foo1" data-tap-toggle="false" data-position="fixed" data-theme="b">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" data-icon="home" data-transition="slide" data-direction="reverse">Map</a></li>
+                        <li><a href="#friends" class="ui-btn-active ui-state-persist" data-icon="search" data-transition="slide">Friends</a></li>
+                        <li><a href="#log" data-icon="info" data-transition="slide">Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <div data-role="page" id="log" data-theme="b">
+            <header data-role="header" data-theme="b">
+                <h1>Log</h1>
+                <a href="#" class="logout" data-role="button">Logout</a>
+            </header>
+            <article data-role="content" data-theme="b">
+                <ul data-role="listview" id="logs" data-filter="true" data-filter-placeholder="Search log...">
+                
+                </ul>
+            </article>
+            <footer data-role="footer" data-id="foo1" data-tap-toggle="false" data-position="fixed" data-theme="b">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#map" data-icon="home" data-transition="slide" data-direction="reverse">Map</a></li>
+                        <li><a href="#friends" data-icon="search" data-transition="slide" data-direction="reverse">Friends</a></li>
+                        <li><a href="#log" class="ui-btn-active ui-state-persist" data-icon="info" >Log</a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div><!-- page end -->
+        <div data-role="page" id="log_form" data-theme="b">
+            <header data-role="header" data-theme="b">
+                <h1>Add Story</h1>
+            </header>
+            <article data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" data-theme="b" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="about">Comment</label>
+                    <textarea cols="40" rows="8" name="about" id="about" data-theme="b"></textarea>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="rating">Rating<br /></label>
+                    <input type="range" min="1" max="5" value="1" step="1.0" id="rating" name="rating">
+                    <!--<label for="rate">Rating<br /></label>
+                    <input type="range" min="0" max="5" value="0" step="1.0" id="backing2" data-role="none">
+                    <div class="rateit bigstars" id="rate" data-rateit-backingfld="#backing2" data-rateit-starwidth="32" data-rateit-starheight="32"></div>-->
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="date">Date</label>
+                    <input name="date" id="date" data-theme="b" />
+                </div>
+                 <div data-role="fieldcontain">
+                    <center>
+                        <img id="myImg" style="display:none;width:120px;height:60px;" src="" />
+                        <button data-theme="b" onclick="getPhoto()">Upload a photo</button>
+                    </center>
+                </div>
+    			<div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Choose Sharing Option:</legend>
+                        <input type="radio" name="share" class="share" value="0" checked="checked" />
+                        <label for="share0" style="margin-left:40px; margin-top:-15px;">Keep private</label>
+                        
+                        <input type="radio" name="share" class="share" value="1"  />
+                        <label for="share1" style="margin-left:40px; margin-top:-15px;">Share with friends</label>
+
+                        <input type="radio" name="share" class="share" value="2"  />
+                        <label for="share2" style="margin-left:40px; margin-top:-15px;">Share with the community</label>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <a data-role="button" data-theme="b" href="#map" onclick="upload()">Submit</a>
+                    <a data-role="button" data-theme="b" href="#map" onclick="cancelMarker()">Cancel</a>
+                </div>
+            </article>
+        </div><!-- page end -->
+    </body>
+</html>

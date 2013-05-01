@@ -1,0 +1,32 @@
+.center-elements{
+    margin: 20px; 
+}
+
+.ui-page{
+    background: #266da1;
+}
+
+.ui-body, .ui-overlay{
+    color: #ffffff;
+    text-shadow: 0 0px 0 #ffffff;
+}
+
+body{
+    color: #ffffff;
+    text-shadow: 0 1px 0 #333333;
+}
+
+h1{
+    color: #ffffff;
+    text-shadow: 0 1px 0 #333333;
+}
+.push-message{
+	color: #fff;
+	background:#161616;
+	opacity: 0.9;
+	position: absolute;
+	padding:20px;
+    left:50%;
+    margin-top:270px;
+    z-index: 1000;
+}

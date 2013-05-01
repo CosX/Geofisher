@@ -20,10 +20,12 @@
 package com.hiof.geofisher;
 
 import android.os.Bundle;
+import org.apache.cordova.DroidGap;
 import org.apache.cordova.*;
 
 public class GeofisherMain extends DroidGap
 {
+	
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -31,6 +33,8 @@ public class GeofisherMain extends DroidGap
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
+        
     }
+    
 }
 
