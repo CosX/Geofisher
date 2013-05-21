@@ -1,12 +1,19 @@
-// JavaScript Document
+/**
+*
+* Filnavn: login.js
+* @author: GeoFisher
+*
+**/
+
 $( document ).bind( "mobileinit", function() {
-// Make your jQuery Mobile framework configuration changes here!
 	$.mobile.allowCrossDomainPages = true;
 });
 
+//Hvis kallet kommer igjennom
 function onSuccess(data){
 	var obj = jQuery.parseJSON(data);
 
+    //Vil enten linke til app.html eller gi en tekst-string
     if (obj.message == '1'){
         window.location.replace("app.html");
     } else if(obj.message == '2') {
@@ -16,23 +23,22 @@ function onSuccess(data){
     	$('#report').html("No response");
     }
 }
-  
-function onError(data)
-{
-   	// handle an error
-}        
+
+function onError(data){
+    $('#report').html("No internet!");
+};
   
 $(document).ready(function() {
     $("#submit").click(function(){
         var formData = $("#callAjaxForm").serialize();
         
         $.ajax({
-            type: "POST",
-            url: "http://frigg.hiof.no/h13d23/Backend/login.php",
-            cache: false,
-            data: formData,
-            success: onSuccess,
-            error: onError
+            type:       "POST",
+            url:        "http://frigg.hiof.no/h13d23/Backend/login.php",
+            cache:      false,
+            data:       formData,
+            success:    onSuccess,
+            error:      onError
         });
         
         return false;

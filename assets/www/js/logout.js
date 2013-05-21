@@ -1,4 +1,11 @@
-// JavaScript Document
+/**
+*
+* Filnavn: logout.js
+* @author: GeoFisher
+*
+**/
+
+//Hvis man trykker logout-knappen
 $(document).ready(function() {
     $(".logout").click(function(){
         $.ajax({

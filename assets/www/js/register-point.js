@@ -1,3 +1,12 @@
+/**
+*
+* Filnavn: register-point.js
+* @author: GeoFisher
+*
+**/
+
+//Hele filen baserer seg på cordova sin filopplastning
+
 var pictureSource;
 var destinationType;
 
